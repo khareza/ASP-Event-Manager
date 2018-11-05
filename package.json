@@ -1,0 +1,22 @@
+{
+  "name": "asp-event-manager",
+  "version": "1.0.0",
+  "description": "Application package manager",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/khareza/ASP-Event-Manager.git"
+  },
+  "author": "Kamil Hareza",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/khareza/ASP-Event-Manager/issues"
+  },
+  "homepage": "https://github.com/khareza/ASP-Event-Manager#readme",
+  "dependencies": {
+    "bootstrap": "^4.1.3"
+  }
+}

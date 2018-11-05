@@ -1,0 +1,43 @@
+﻿@model IQueryable<EventModel>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Events</title><style>
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        padding: 5px;
+        text-align: left;
+    }
+</style>
+</head>
+<body>
+
+    @foreach (var ev in Model)
+
+    {
+        <table style="width:100%">
+            <tr>
+                <td colspan="2">@ev.Image</td>
+            </tr>
+            <tr>
+                <td>@ev.StartDate</td>
+                <td rowspan="4"> Intrested button</td>
+            </tr>
+            <tr>
+                <td>@ev.Title</td>
+            </tr>
+            <tr>
+                <td>@ev.Location</td>
+            </tr>
+            <tr>
+                <td>@ev.Type</td>
+            </tr>
+        </table>
+    }
+
+
+</body>
+</html>

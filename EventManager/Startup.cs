@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using EventManager.Models;
+using EventManager.Models.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -15,6 +17,7 @@ namespace EventManager
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddTransient<IEventRepository, EventRepository>();
             services.AddMvc();
         }
 
@@ -26,9 +29,22 @@ namespace EventManager
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseMvc();
+            app.UseMvc(routes => {
+                routes.MapRoute(
+                    name: null,
+                    template: "{controller}/{action}",
+                    defaults: new
+                    {
+                        controller = "Event",
+                        action = "Index"
+                    }
+                );
+                routes.MapRoute(name: null, template: "{controller}/{action}/{id?}");
+
+            });
             app.UseStaticFiles();
             app.UseDeveloperExceptionPage();
+            app.UseStatusCodePages();
         }
     }
 }
